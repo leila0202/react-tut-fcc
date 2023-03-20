@@ -5,6 +5,9 @@ const BookList = () => {
   return (
     <section>
       <Book />
+      <Book />
+      <Book />
+      <Book />
     </section>
   );
 };
@@ -20,15 +23,20 @@ const Book = () => {
 };
 
 const Image = () => {
-  return <h2>Image Placeholder</h2>;
+  return (
+    <img
+      src="https://images-na.ssl-images-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81bGKUa1e0L._AC_UL600_SR600,400_.jpg"
+      alt="Atomic Habits Cover"
+    />
+  );
 };
 
 const Title = () => {
-  return <h2>Book Title</h2>;
+  return <h2>Atomic Habits</h2>;
 };
 
 const Author = () => {
-  return <h4>Author</h4>;
+  return <h4>James Clear</h4>;
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
