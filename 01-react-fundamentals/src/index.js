@@ -14,15 +14,18 @@ const BookList = () => {
   );
 };
 
+const author = 'James Clear';
+
 const Book = () => {
+  const title = 'Atomic Habits'; //can be declared insinde or outside of the componentn but not in the return statement
   return (
     <article className="book">
       <img
         src="https://images-na.ssl-images-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81bGKUa1e0L._AC_UL600_SR600,400_.jpg"
-        alt="Atomic Habits Cover"
+        alt={title + ' Cover'}
       />
-      <h2>Atomic Habits</h2>
-      <h4>James Clear</h4>
+      <h2>{title}</h2>
+      <h4>{author}</h4>
     </article>
   );
 };
