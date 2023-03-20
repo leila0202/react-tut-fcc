@@ -3,33 +3,34 @@ import ReactDOM from 'react-dom/client';
 
 import './index.css';
 
-const firstBook = {
-  author: 'James Clear',
-  title: 'Atomic Habits',
-  imgUrl:
-    'https://images-na.ssl-images-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81bGKUa1e0L._AC_UL600_SR600,400_.jpg',
-};
-
-const secondBook = {
-  author: 'Dav Pilkey',
-  title: 'Dog Man: Twenty Thousand Fleas Under the Sea',
-  imgUrl:
-    'https://images-na.ssl-images-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81fyoFoaxlL._AC_UL600_SR600,400_.jpg',
-};
+const books = [
+  {
+    author: 'James Clear',
+    title: 'Atomic Habits',
+    imgUrl:
+      'https://images-na.ssl-images-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81bGKUa1e0L._AC_UL600_SR600,400_.jpg',
+  },
+  {
+    author: 'Dav Pilkey',
+    title: 'Dog Man: Twenty Thousand Fleas Under the Sea',
+    imgUrl:
+      'https://images-na.ssl-images-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81fyoFoaxlL._AC_UL600_SR600,400_.jpg',
+  },
+];
 
 const BookList = () => {
   return (
     <section className="booklist">
-      <Book
-        author={firstBook.author}
-        title={firstBook.title}
-        imgUrl={firstBook.imgUrl}
-      />
-      <Book
-        author={secondBook.author}
-        title={secondBook.title}
-        imgUrl={secondBook.imgUrl}
-      />
+      {books.map((book) => {
+        return (
+          <Book
+            key={book.title}
+            title={book.title}
+            author={book.author}
+            imgUrl={book.imgUrl}
+          />
+        );
+      })}
     </section>
   );
 };
