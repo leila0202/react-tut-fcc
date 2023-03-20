@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import './index.css';
@@ -20,9 +19,39 @@ const books = [
   },
 ];
 
+const EventExample = () => {
+  const handleInput = (e) => {
+    console.log(e.target.value);
+  };
+
+  const handleButtonClick = () => {
+    alert('button clicked');
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log('form submitted');
+  };
+  return (
+    <section>
+      <form onSubmit={handleFormSubmit}>
+        <h2>Typical Form</h2>
+        <input
+          type="text"
+          name="example"
+          onChange={handleInput}
+          style={{ margin: '1rem 0' }}
+        />
+      </form>
+      <button onClick={handleButtonClick}>click me</button>
+    </section>
+  );
+};
+
 const BookList = () => {
   return (
     <section className="booklist">
+      <EventExample />
       {books.map((book) => {
         return <Book key={book.id} {...book} />;
       })}
