@@ -3,17 +3,33 @@ import ReactDOM from 'react-dom/client';
 
 import './index.css';
 
-const author = 'James Clear';
-const title = 'Atomic Habits'; //can be declared insinde or outside of the componentn but not in the return statement
-const imgUrl =
-  'https://images-na.ssl-images-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81bGKUa1e0L._AC_UL600_SR600,400_.jpg';
+const firstBook = {
+  author: 'James Clear',
+  title: 'Atomic Habits',
+  imgUrl:
+    'https://images-na.ssl-images-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81bGKUa1e0L._AC_UL600_SR600,400_.jpg',
+};
+
+const secondBook = {
+  author: 'Dav Pilkey',
+  title: 'Dog Man: Twenty Thousand Fleas Under the Sea',
+  imgUrl:
+    'https://images-na.ssl-images-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81fyoFoaxlL._AC_UL600_SR600,400_.jpg',
+};
 
 const BookList = () => {
   return (
     <section className="booklist">
-      <Book author={author} title={title} imgUrl={imgUrl} />
-      <Book author={author} title={title} imgUrl={imgUrl} />
-      <Book author={author} title={title} imgUrl={imgUrl} />
+      <Book
+        author={firstBook.author}
+        title={firstBook.title}
+        imgUrl={firstBook.imgUrl}
+      />
+      <Book
+        author={secondBook.author}
+        title={secondBook.title}
+        imgUrl={secondBook.imgUrl}
+      />
     </section>
   );
 };
