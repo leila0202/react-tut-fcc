@@ -1,70 +1,272 @@
-# Getting Started with Create React App
+# React Fundamentals
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### React Course
 
-## Available Scripts
+Based on: [Course] (https://www.udemy.com/course/react-tutorial-and-projects-course/?referralCode=FEE6A921AF07E2563CEF)
 
-In the project directory, you can run:
+#### Support
 
-### `npm start`
+Find the Content Useful? [You can always buy me a coffee](https://www.buymeacoffee.com/johnsmilga)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Folder Structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- node_modules
+  Contains all dependencies required by the app. Main dependencies also listed in package.json
 
-### `npm test`
+- public
+  Contains static assets including index.html (page template)
+  - index.html
+    - title
+    - fonts
+    - css
+    - favicon
+    - id="root" - our entire app
+- src
+  In simplest form it's the brain of our app. This is where we will do all of our work. src/index.js is the JavaScript entry point.
+- .gitignore
+  Specifies which files source control (Git) should ignore
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- package.json
+  Every Node.js project has a package.json and it contains info about our project, for example list of dependencies and scripts
 
-### `npm run build`
+- package-lock.json
+  A snapshot of the entire dependency tree
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- README
+  The markdown file where you can share more info about the project for example build instructions and summary
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- zoom 175%
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Remove Boilerplate
 
-### `npm run eject`
+- remove src folder
+- create src folder
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  - create index.js inside src
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- toggle sidebar CMD + B
+- shortcuts settings/keyboard shortcuts
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### First Component
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```js
+function Greeting() {
+  return <h2>My First Component</h2>;
+}
 
-## Learn More
+// arrow function also works
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+const Greeting = () => {
+  return <h2>My First Component</h2>;
+};
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- starts with capital letter
+- must return JSX (html)
+- always close tag <Greeting/>
 
-### Code Splitting
+##### Typical Component
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```js
+// imports or logic
 
-### Analyzing the Bundle Size
+const Greeting = () => {
+  return <h2>My First Component</h2>;
+};
+export default Greeting;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+##### Root Component (only one)
 
-### Making a Progressive Web App
+index.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-### Advanced Configuration
+function Greeting() {
+  return <h2>My First Component</h2>;
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-### Deployment
+root.render(<Greeting />);
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Possible Bug
 
-### `npm run build` fails to minify
+If for some reason you still have this error in the terminal
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+Module not found: Error: Can't resolve 'path/index.js'
+```
+
+Just restart the server
+
+- CTRL + C (stop the server)
+- "npm start" (start the dev server)
+
+#### Extensions and settings.json
+
+- Auto Rename Tag
+- Highlight Matching Tag
+  - customize in settings.json
+- Prettier
+  - format on save
+  - format on paste
+  - Default Formatter (Prettier - Code formatter)
+
+settings.json
+
+```json
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.singleQuote": true,
+    "prettier.semi": false,
+```
+
+- Emmet
+
+settings.json
+
+```json
+"emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+```
+
+- ES7 Snippets
+  - rafce (arrow func with export)
+  - rfce (regular func with export )
+  - same as the file name
+  - react auto import
+    - uncheck
+    - React Snippets › Settings: Import React On Top
+
+#### First Component in Detail
+
+- capital letter
+- must return something
+- JSX syntax (return html)
+  - to make our lives easier
+  - calling function under the hood
+
+index.js
+
+```js
+const Greeting = () => {
+  return React.createElement('h2', {}, 'hello world');
+};
+```
+
+```js
+function Greeting() {
+  return (
+    <div>
+      <h2>hello world</h2>
+    </div>
+  );
+}
+
+const Greeting = () => {
+  return React.createElement(
+    'div',
+    {},
+    React.createElement('h2', {}, 'hello world')
+  );
+};
+```
+
+#### JSX Rules
+
+- return single element (one parent element)
+
+  - semantics section/article
+  - Fragment - let's us group elements without adding extra nodes
+
+```js
+return <React.Fragment>...rest of the return</React.Fragment>;
+
+// shorthand
+
+return <>...rest of the return</>;
+```
+
+- camelCase property naming convention
+
+```js
+return (
+  <div tabIndex={1}>
+    <button onClick={myFunction}>click me</button>
+    <label htmlFor='name'>Name</label>
+    <input readOnly={true} id='name' />
+  </div>
+)
+// in html
+<div tabindex="1">
+    <button onclick="myFunction()">click me</button>
+    <label for='name'>Name</label>
+    <input readonly id='name' />
+</div>
+```
+
+- className instead of class
+
+```js
+return <div className="someValue">hello</div>;
+```
+
+- close every element
+
+```js
+return <img />;
+// or
+return <input />;
+```
+
+- formatting
+  - opening tag in the same line as return or ()
+
+```js
+function Greeting() {
+  return (
+    <>
+      <div className="someValue">
+        <h3>hello people</h3>
+        <ul>
+          <li>
+            <a href="#">hello world</a>
+          </li>
+        </ul>
+      </div>
+      <h2>hello world</h2>
+      <input type="text" name="" id="" />
+    </>
+  );
+}
+```
+
+#### Nest Components
+
+```js
+function Greeting() {
+  return (
+    <div>
+      <Person />
+      <Message />
+    </div>
+  );
+}
+
+const Person = () => <h2>john doe</h2>;
+const Message = () => {
+  return <p>this is my message</p>;
+};
+```
+
+#### React Developer Tools
+
+- top right corner
+- more tools/extensions
+- open chrome web store
