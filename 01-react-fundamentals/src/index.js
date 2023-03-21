@@ -20,21 +20,26 @@ const books = [
 ];
 
 const BookList = () => {
+  const someValue = 'shakeandbake';
+  const displayValue = () => {
+    console.log(someValue);
+  };
   return (
     <section className="booklist">
       {books.map((book) => {
-        return <Book key={book.id} {...book} />;
+        return <Book key={book.id} {...book} displayValue={displayValue} />;
       })}
     </section>
   );
 };
 
 const Book = (props) => {
-  const { author, title, imgUrl } = props;
+  const { author, title, imgUrl, displayValue } = props;
   return (
     <article className="book">
       <img src={imgUrl} alt={title + ' Cover'} />
       <h2>{title}</h2>
+      <button onClick={displayValue}>click me</button>
       <h4>{author}</h4>
       {/* <p>{let x = 6}</p> doesn't work it must be an expression (return value)*/}
     </article>
