@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# React Fundamentals
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### React Course
 
-## Available Scripts
+Based on: [Course] (https://www.udemy.com/course/react-tutorial-and-projects-course/?referralCode=FEE6A921AF07E2563CEF)
 
-In the project directory, you can run:
+#### Support
 
-### `npm start`
+Find the Content Useful? [You can always buy me a coffee](https://www.buymeacoffee.com/johnsmilga)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Create-React-App Boilerplate (src)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- index.js
 
-### `npm test`
+```js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+// styles (typically global)
+import './index.css';
 
-### `npm run build`
+// convention to name it App and setup in a separate file
+import App from './App';
+// import report web vitals
+import reportWebVitals from './reportWebVitals';
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+// StrictMode
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+// StrictMode is a tool for highlighting potential problems in an application.Activates additional checks and warnings for its descendants.Runs only in Development, does not impact the production build. RENDERS TWICE !!! Possible to remove.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-### `npm run eject`
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- remove in src
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  - setupTests.js
+  - reportWebVitals.js
+  - App.test.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- be careful with multiple css files
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+App.js
 
-## Learn More
+```js
+function App() {
+  return <h1>backroads app</h1>;
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+export default App;
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- remove
+  - remove logo.svg
+  - App.css
 
-### Code Splitting
+#### Vite Docs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+(Vite)[https://vitejs.dev/]
 
-### Analyzing the Bundle Size
+#### Vite Install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```sh
+npm create vite@latest app-name -- --template react
+npm install
+npm run dev
+```
 
-### Making a Progressive Web App
+- http://localhost:5173/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Vite Setup
 
-### Advanced Configuration
+- need to use .jsx extension
+- index.html in the source instead of public
+- assets still in public
+- instead of index.js, need to use main.jsx
+- to spin up dev server - "npm run dev"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- rest the same - imports/exports, deployment, assets, etc...
