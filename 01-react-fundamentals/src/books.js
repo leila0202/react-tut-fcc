@@ -1,16 +1,24 @@
+import img1 from './images/young-forever.jpg';
+import img2 from './images/atomic-habits.jpg';
+import img3 from './images/dog-man.jpg';
+
 export const books = [
+  {
+    author: 'Dr. Mark Hyman MD',
+    title: 'Young Forever',
+    imgUrl: img1,
+    id: 1,
+  },
   {
     author: 'James Clear',
     title: 'Atomic Habits',
-    imgUrl:
-      'https://images-na.ssl-images-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81bGKUa1e0L._AC_UL600_SR600,400_.jpg',
-    id: 1,
+    imgUrl: img2,
+    id: 2,
   },
   {
     author: 'Dav Pilkey',
     title: 'Dog Man: Twenty Thousand Fleas Under the Sea',
-    imgUrl:
-      'https://images-na.ssl-images-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81fyoFoaxlL._AC_UL600_SR600,400_.jpg',
-    id: 2,
+    imgUrl: img3,
+    id: 3,
   },
 ];
