@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+//correct
 const UseStateObject = () => {
   const [person, setPerson] = useState({
     name: 'Kathi',
