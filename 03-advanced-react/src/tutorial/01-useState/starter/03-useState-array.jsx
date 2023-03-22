@@ -6,6 +6,7 @@ const UseStateArray = () => {
   const handleRemoveOne = (id) => {
     setPeople(people.filter((person) => person.id !== id));
   };
+  //Correct
   return (
     <>
       <h2>useState array example</h2>
