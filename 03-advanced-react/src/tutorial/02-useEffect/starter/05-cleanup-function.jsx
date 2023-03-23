@@ -17,6 +17,14 @@ const CleanupFunction = () => {
 export default CleanupFunction;
 
 const SecondComponent = () => {
-  useEffect(() => console.log('use effect triggered'), []);
+  useEffect(() => {
+    console.log('use effect triggered');
+    const intId = setInterval(() => {
+      console.log('Interval triggered');
+    }, 1000);
+    return () => {
+      clearInterval(intId);
+    };
+  }, []);
   return <h2>Second Component</h2>;
 };
