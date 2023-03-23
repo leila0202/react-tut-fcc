@@ -18,12 +18,12 @@ export default CleanupFunction;
 
 const SecondComponent = () => {
   useEffect(() => {
-    console.log('use effect triggered');
-    const intId = setInterval(() => {
-      console.log('Interval triggered');
-    }, 1000);
+    const someFunc = () => {
+      //some logic
+    };
+    window.addEventListener('scroll', someFunc);
     return () => {
-      clearInterval(intId);
+      window.removeEventListener('scroll', someFunc);
     };
   }, []);
   return <h2>Second Component</h2>;
