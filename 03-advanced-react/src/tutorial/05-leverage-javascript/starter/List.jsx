@@ -6,7 +6,7 @@ const List = () => {
     <div>
       <ul>
         {people.map((person) => (
-          <Person key={person.id} person={person} />
+          <Person key={person.id} {...person} />
         ))}
       </ul>
     </div>

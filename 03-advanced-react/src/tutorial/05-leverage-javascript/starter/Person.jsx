@@ -1,14 +1,12 @@
-const Person = (props) => {
-  const { name, nickName, images } = props.person;
+import avatar from '../../../assets/default-avatar.svg';
+
+const Person = ({ name, nickName = 'No Nickname', images }) => {
+  const img = images?.[0]?.small?.url || avatar;
   return (
     <div style={{ border: '1px black solid' }}>
       <h3>{name}</h3>
-      <h4>{nickName}</h4>
-      {images ? (
-        <img style={{ width: '50px' }} src={images[0].small.url} alt={name} />
-      ) : (
-        <></>
-      )}
+      <h4>Nickname: {nickName}</h4>
+      <img style={{ width: '50px' }} src={img} alt={name} />
     </div>
   );
 };
