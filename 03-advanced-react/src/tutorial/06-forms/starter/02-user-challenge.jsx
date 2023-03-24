@@ -15,6 +15,7 @@ const UserChallenge = () => {
     setUsers((prevState) => {
       return [...prevState, newUser];
     });
+    setName('');
   };
 
   const removeUser = (id) => {
