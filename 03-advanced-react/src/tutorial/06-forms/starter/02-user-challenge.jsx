@@ -5,15 +5,15 @@ const UserChallenge = () => {
   const [name, setName] = useState('');
   const [users, setUsers] = useState(data);
   const id = users[users.length - 1].id;
-  console.log(id);
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!name) return;
     const newUser = {
       id: id + 1,
       name: name,
     };
     setUsers((prevState) => {
-      return prevState.concat(newUser);
+      return [...prevState, newUser];
     });
   };
 
