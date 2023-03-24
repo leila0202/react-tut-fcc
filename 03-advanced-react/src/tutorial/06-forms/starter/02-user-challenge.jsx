@@ -4,12 +4,12 @@ import { data } from '../../../data';
 const UserChallenge = () => {
   const [name, setName] = useState('');
   const [users, setUsers] = useState(data);
-  const id = users[users.length - 1].id;
+  const id = users[users.length - 1]?.id;
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name) return;
     const newUser = {
-      id: id + 1,
+      id: id + 1 || 1,
       name: name,
     };
     setUsers((prevState) => {
