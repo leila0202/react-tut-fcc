@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import useFetchPerson from './useFetchPerson';
+import useCustomFetch from './useCustomFetch';
 const url = 'https://api.github.com/users/QuincyLarson';
 
 const FetchData = () => {
-  const { user, isLoading, isError } = useFetchPerson(url);
+  const { data, isLoading, isError } = useCustomFetch(url);
   // order matters
   // don't place user JSX before loading or error
 
@@ -13,7 +13,7 @@ const FetchData = () => {
   if (isError) {
     return <h2>There was an error...</h2>;
   }
-  const { avatar_url, name, company, bio } = user;
+  const { avatar_url, name, company, bio } = data;
   return (
     <div>
       <img
