@@ -16,7 +16,9 @@ const reducer = (state, action) => {
   }
 
   if (action.type === REMOVE_ITEM) {
-    let newPeople = state.people.filter((person) => person.id !== action.id);
+    let newPeople = state.people.filter(
+      (person) => person.id !== action.payload.id
+    );
     return {
       ...state,
       people: newPeople,
@@ -37,7 +39,7 @@ const ReducerBasics = () => {
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   const removeItem = (id) => {
-    dispatch({ type: REMOVE_ITEM, id: id });
+    dispatch({ type: REMOVE_ITEM, payload: { id } });
   };
 
   const clearList = () => {
