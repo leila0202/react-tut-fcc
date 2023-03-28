@@ -6,12 +6,16 @@ const defaultState = {
   isLoading: false,
 };
 
+const CLEAR_LIST = 'CLEAR_LIST';
+const REMOVE_ITEM = 'REMOVE_ITEM';
+const RESET_LIST = 'RESET_LIST';
+
 const reducer = (state, action) => {
-  if (action.type === 'CLEAR_LIST') {
+  if (action.type === CLEAR_LIST) {
     return { ...state, people: [] };
   }
 
-  if (action.type === 'REMOVE_ITEM') {
+  if (action.type === REMOVE_ITEM) {
     let newPeople = state.people.filter((person) => person.id !== action.id);
     return {
       ...state,
@@ -19,7 +23,7 @@ const reducer = (state, action) => {
     };
   }
 
-  if (action.type === 'RESET_LIST') {
+  if (action.type === RESET_LIST) {
     return {
       ...state,
       people: data,
@@ -31,15 +35,15 @@ const ReducerBasics = () => {
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   const removeItem = (id) => {
-    dispatch({ type: 'REMOVE_ITEM', id: id });
+    dispatch({ type: REMOVE_ITEM, id: id });
   };
 
   const clearList = () => {
-    dispatch({ type: 'CLEAR_LIST' });
+    dispatch({ type: CLEAR_LIST });
   };
 
   const resetList = () => {
-    dispatch({ type: 'RESET_LIST' });
+    dispatch({ type: RESET_LIST });
   };
   return (
     <div>
