@@ -3,26 +3,44 @@ import { data } from '../../../data';
 
 const defaultState = {
   people: data,
+  isLoading: false,
 };
 
-const reducer = () => {};
+const reducer = (state, action) => {
+  if (action.type === 'CLEAR_LIST') {
+    return { ...state, people: [] };
+  }
+
+  if (action.type === 'REMOVE_ITEM') {
+    let newPeople = state.people.filter((person) => person.id !== action.id);
+    return {
+      ...state,
+      people: newPeople,
+    };
+  }
+
+  if (action.type === 'RESET_LIST') {
+    return {
+      ...state,
+      people: data,
+    };
+  }
+};
 
 const ReducerBasics = () => {
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   const removeItem = (id) => {
-    // let newPeople = people.filter((person) => person.id !== id);
-    // setPeople(newPeople);
+    dispatch({ type: 'REMOVE_ITEM', id: id });
   };
 
   const clearList = () => {
-    // setPeople([]);
+    dispatch({ type: 'CLEAR_LIST' });
   };
 
   const resetList = () => {
-    // setPeople(data);
+    dispatch({ type: 'RESET_LIST' });
   };
-  console.log(state);
   return (
     <div>
       {state.people.map((person) => {
