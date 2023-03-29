@@ -8,7 +8,7 @@ const LowerState = () => {
   return (
     <section>
       <button
-        className='btn'
+        className="btn"
         onClick={() => setCount(count + 1)}
         style={{ marginBottom: '1rem' }}
       >
